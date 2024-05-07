@@ -51,3 +51,6 @@ footer {
 .regFormFooter button {
     margin-right: 10px;
 }
+.candidateImage {
+    cursor: pointer;
+}
