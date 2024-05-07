@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ми3метр</title>
+<link rel="stylesheet"  href="/common.css">
+</head>
+<body>
+	<div class="mainContainer">
+	    <header>
+	        <h1>Мимимиметр</h1>
+	    </header>
+	    <div>
+	        <a th:href="@{/login}">Войти</a>
+	        <a th:href="@{/register}">Регистрация</a>
+	    </div>
+	    <div>
+	        <a th:href="@{/vote}">Голосовать</a>
+	        <a th:href="@{/candidate/create}">Добавить котика</a>
+	    </div>
+    </div>
+</body>
+</html>

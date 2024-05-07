@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.com">
+<head>
+<meta charset="UTF-8">
+<title>Ми3метр</title>
+<link rel="stylesheet" href="/common.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <header>
+            <h1>Добавление нового кандидата</h1>
+        </header>
+        <form class="regForm" method="post" th:action="@{/candidate/create}"
+            th:modelAttribute="book" th:object="${candidateDTO}" enctype="multipart/form-data">
+            <p>
+                <label>Имя:</label> <input type="text" th:name="name"
+                    th:value="${candidateDTO.getName()}" />
+            </p>
+            <div class="errorArea" th:if="${#fields.hasErrors('name')}">
+                <label class="errorLabel" th:errors="*{name}">Ошибка в имени</label>
+            </div>
+            <p>
+                <label>Фото: </label>
+                <td><input name="ppp" accept="image/*" type='file' id="imgInp" />
+            </p>
+            <p class="regFormImageHolder">
+                <img id="avatar" th:src="@{'data:image/jpeg;base64,'+${candidateDTO?.getPhoto()}}"
+                    alt="" />
+            </p>
+            <div class="regFormFooter">
+                <button>Добавить</button>
+                <a th:href="@{/}">Отмена</a>
+            </div>
+        </form>
+    </div>
+</body>
+<script type="text/javascript">
+    imgInp.onchange = evt => {
+      const [file] = imgInp.files
+      if (file) {
+        avatar.src = URL.createObjectURL(file)
+      }
+    }
+</script>
+</html>

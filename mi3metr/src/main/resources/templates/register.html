@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Регистрация нового пользователя</title>
+<link rel="stylesheet" href="/common.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <h1>Регистрация нового пользователя</h1>
+        <form class="regForm" method="POST" th:action="@{/register}" id="registerForm"
+            th:object="${registrationForm}">
+            <p>
+                <label for="userName">Логин: </label> <input type="text" name="userName"
+                    th:value="${registrationForm.getUserName()}">
+            </p>
+            <div class="errorArea" th:if="${#fields.hasErrors('userName')}">
+                <label class="errorLabel" 
+                    th:errors="*{userName}">Ошибка в имени</label>
+            </div>
+            <p>
+                <label for="password">Пароль: </label> <input type="password" name="password"
+                    th:value="${registrationForm.getPassword()}">
+            <div class="errorArea">
+                <label class="errorLabel" th:if="${#fields.hasErrors('password')}"
+                    th:errors="*{password}">Ошибка в пароле</label>
+            </div>
+            </p>
+            <div class="regFormFooter">
+                <button>Регистрация</button>
+                <a th:href="@{/}">Отмена</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

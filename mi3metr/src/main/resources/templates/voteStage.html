@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ми3метр</title>
+<link rel="stylesheet"  href="/common.css">
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+<script src="/voteStage.js"></script>
+</head>
+<body>
+    <div class="mainContainer">
+        <header>
+        <h1>Мимимиметр</h1>
+        <h3>Кто из них мимимишнее? Кликни по фотографии</h3>
+    	</header>
+    
+		<form id="voteForm" method="post" th:action="@{/vote}" th:object="${votingStageResult}">
+			<table>
+				<tr>
+					<td th:each="candidate : ${votingStage.getCandidates()}">
+						<div>
+							<img class="candidateImage"
+								style="display: block; max-width: 300px; max-height: 300px"
+								th:src="@{'data:image/jpeg;base64,'+${candidate.getPhoto()}}"
+								alt="" />
+							<input hidden="true" type="radio" th:name="votedCandidateId" th:value="${candidate.getId()}" />	 
+							<a href="javascript:void(0);" th:text="${candidate.getName()}" /> 
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		
+		<a th:href="@{/}">На главную</a>
+	</div>
+</body>
+</html>

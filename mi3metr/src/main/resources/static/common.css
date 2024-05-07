@@ -1,0 +1,53 @@
+header {
+    text-align: center;
+}
+.mainContainer {
+    display: grid;
+    place-items: center;
+}
+table {
+    align-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+table tr td {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+footer {
+    margin-top: 20px;
+}
+.regForm label {
+ 	width: 70px;
+ 	float: left;
+}
+.regForm p {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.regForm .errorArea {
+    margin-top: -16px;
+}
+.regForm .errorLabel {
+ 	width: 400px;
+ 	margin-left: 70px;
+ 	color: red;
+}
+.regForm input{
+	width: 400px;
+}
+.regForm img{
+	max-width: 300px; 
+	max-height: 300px;
+}
+.regFormImageHolder {
+    text-align: center;
+}
+.regFormFooter {
+    padding-top: 16px;
+    text-align: center;
+}
+.regFormFooter button {
+    margin-right: 10px;
+}
